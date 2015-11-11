@@ -24,6 +24,7 @@ distros: If everything works, remove the original key.
 5. Re-test to confirm it still works.
 6. Create/update a tag called “EC2KeyName” that contains the name of the new SSH key
 
+The script accepts the following command line options:
 
       usage: rotate-ec2-key.sh [options...]
       options:
@@ -37,6 +38,7 @@ distros: If everything works, remove the original key.
       -j --json          A file to send JSON output to. Optional.
          --help          Prints this help message
 
+
 **rotate-iam-key.sh** is a bash script that rotates an IAM user's key. The script follows the process below to rotate the key:
 
 1. Create a new (second) access key for the user.
@@ -49,6 +51,7 @@ The script does a fairly simple test in step #4: it merely attempts to get an ob
 the test passes. The actual tests used in your production environment will likely be more extensive and will vary based
 on your business requirements.
 
+The script accepts the following command line options:
 
     usage: rotate-iam-user-key.sh [options...]
     options:
