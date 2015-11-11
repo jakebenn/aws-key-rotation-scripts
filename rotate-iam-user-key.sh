@@ -4,7 +4,7 @@
 # === DESCRIPTION
 # ================================================================
 #
-# Summary: This script automatically rotates the key for a IAM user.
+# Summary: This script automatically rotates the key for an IAM user.
 #
 # Version: 1.0.0
 #
@@ -162,7 +162,7 @@ rm temp-key
 #  Note: This will need to be changed to accomodate your specific use case.
 #  Also Note: This test configures a temporary profile for the AWS CLI based on the user whose keys are being rotated.
 #             All AWS calls intended test this user's access should be run using the "--profile" flag so they are
-#             under the IAM user's identity, now your default AWS CLI identity.
+#             under the IAM user's identity, not your default AWS CLI identity.
 #
 
 echo "Testing new key..."
