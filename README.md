@@ -37,7 +37,7 @@ distros: If everything works, remove the original key.
     -j --json          A file to send JSON output to. Optional.
      --help            Prints this help message
 
-**rotate-iam-key.sh** is a bash script that rotates an IAM user's key. The general pattern to rotate keys is as follows:
+**rotate-iam-key.sh** is a bash script that rotates an IAM user's key. The script follows the process below to rotate the key:
 
 1. Create a new (second) access key for the user.
 2. Test the application code with the new key.
@@ -48,6 +48,7 @@ distros: If everything works, remove the original key.
 The script does a fairly simple test in step #4: it merely attempts to get an object from S3, and if it’s successful,
 the test passes. The actual tests used in your production environment will likely be more extensive and will vary based
 on your business requirements.
+
 
     usage: rotate-iam-user-key.sh [options...]
     options:
