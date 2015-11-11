@@ -20,21 +20,24 @@ The script follows the process below to rotate the key:
 3. Test by logging into the instance with the new key.
 4. For CoreOS instances: If everything works, remove the original key by replacing the SSH key in
 the `~/.ssh/authorized_keys.d/coreos-ignition` file and run update-ssh-key to enable the change. For other
-distros: If everything works, remove the original key.
+distros: If everything works, remove the original key from the `~./ssh/authorized_keys` file.
 5. Re-test to confirm it still works.
 6. Create/update a tag called “EC2KeyName” that contains the name of the new SSH key
 
-The script accepts the following command line options:
+The rotate-ec2-key.sh script accepts the following command line options:
 
       usage: rotate-ec2-key.sh [options...]
       options:
       -s --ssh-key-file  Path to EC2 private ssh key file for the key to be replaced. Required.
       -h --host          IP address or DNS name for the EC2 instance. Required.
-      -a --aws-key-file  The file for the .csv access key file for an AWS administrator. Optional. The AWS administrator
-                         must have the rights to create tags for EC2 instances. The script expects the .csv format
-                         used when you dowload the key from IAM in the AWS console. If you don't specify a key file,
+      -a --aws-key-file  The file for the .csv access key file for an AWS administrator. Optional. The AWS
+                         administrator must have the rights to create tags for EC2 instances. The script
+                         expects the .csv format used when you download the key from IAM in the AWS console.
+                         If you don't specify a key file, the script will use your existing CLI
+                         configuration settings.
                          the default credentials in ~/.aws/credentials will be used.
-      -u --user          Root/admin user for the EC2 instance. Optional. The default value is 'core' (for the CoreOS distro).
+      -u --user          Root/admin user for the EC2 instance. Optional. The default value is 'core' (for
+                         the CoreOS distro).
       -j --json          A file to send JSON output to. Optional.
          --help          Prints this help message
 
@@ -42,7 +45,7 @@ The script accepts the following command line options:
 **rotate-iam-key.sh** is a bash script that rotates an IAM user's key. The script follows the process below to rotate the key:
 
 1. Create a new (second) access key for the user.
-2. Test the application code with the new key..
+2. Test the application code with the new key.
 3. If nothing breaks, de-activate the old key.
 4. Re-test.
 5. If nothing breaks, delete the old key.
@@ -51,7 +54,7 @@ The script does a fairly simple test in step #4: it merely attempts to get an ob
 the test passes. The actual tests used in your production environment will likely be more extensive and will vary based
 on your business requirements.
 
-The script accepts the following command line options:
+The rotate-iam-key.sh script accepts the following command line options:
 
     usage: rotate-iam-user-key.sh [options...]
     options:
