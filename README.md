@@ -25,15 +25,15 @@ distros: If everything works, remove the original key.
 6. Create/update a tag called “EC2KeyName” that contains the name of the new SSH key
 
 
-```usage: rotate-ec2-key.sh [options...]
+``` usage: rotate-ec2-key.sh [options...]
 options:
  -s --ssh-key-file  Path to EC2 private ssh key file for the key to be replaced. Required.
  -h --host          IP address or DNS name for the EC2 instance. Required.
  -a --aws-key-file  The file for the .csv access key file for an AWS administrator. Optional. The AWS administrator
                     must have the rights to create tags for EC2 instances. The script expects the .csv format
-                    used when you dowload the key from IAM in the AWS console. If you don't specify a key file,
+                    used when you download the key from IAM in the AWS console. If you don't specify a key file,
                     the default credentials in ~/.aws/credentials will be used.
  -u --user          Root/admin user for the EC2 instance. Optional. The default value is 'core' (for the CoreOS distro).
  -j --json          A file to send JSON output to. Optional.
     --help          Prints this help message
- ```
+```
