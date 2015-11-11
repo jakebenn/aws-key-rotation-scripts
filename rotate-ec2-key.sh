@@ -4,7 +4,7 @@
 # === DESCRIPTION
 # ================================================================
 #
-# Summary: This script rotates the root ssh key on an EC3 instance
+# Summary: This script rotates the root ssh key on an EC2 instance
 #
 # Version: 1.0.0
 #
