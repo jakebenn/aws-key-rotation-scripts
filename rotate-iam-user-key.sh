@@ -84,7 +84,7 @@ while [ "$1" != "" ]; do
         -j | --json)  shift
                       JSON_OUTPUT_FILE="$1"
                       ;;
-        -c | --csv-key- file) shift
+        -c | --csv-key-file) shift
                       CSV_OUTPUT_FILE="$1"
                       ;;
         --help)       PrintHelp
